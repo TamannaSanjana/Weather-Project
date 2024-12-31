@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Updates</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Weather Updates</h1>
+            <div class="search-bar">
+                <input type="text" id="location-input" placeholder="Enter location">
+                <button id="search-btn"><i data-feather="search"></i></button>
+            </div>
+        </header>
+        <main>
+            <section class="current-weather">
+                <h2 id="location">Sylhet</h2>
+                <div class="weather-info">
+                    <div class="temperature">
+                        <span id="current-temp">--°C</span>
+                        <span id="feels-like">Feels like --°C</span>
+                    </div>
+                    <div class="conditions">
+                        <i id="weather-icon" data-feather="sun"></i>
+                        <span id="weather-description">Loading...</span>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="detail-item">
+                        <i data-feather="wind"></i>
+                        <span id="wind-speed">-- m/s</span>
+                    </div>
+                    <div class="detail-item">
+                        <i data-feather="droplet"></i>
+                        <span id="humidity">--%</span>
+                    </div>
+                    <div class="detail-item">
+                        <i data-feather="cloud"></i>
+                        <span id="cloud-cover">--%</span>
+                    </div>
+                    <div class="detail-item">
+                        <i data-feather="umbrella"></i>
+                        <span id="rain-amount">-- mm</span>
+                    </div>
+                </div>
+            </section>
+            <section class="seven-day-forecast">
+                <h3>Hourly Forecast</h3>
+                <div class="hourly-container" id="hourly-container"></div><br>
+                <div></div>
+                <div class="row">
+                    <div class="col-sm-2">
+                      <div class="daily-weather">
+                        <h2 class="day">9 PM</h2>
+                        <h3 class="degrees">25 °C</h3>
+                        <canvas id="clear-day" width="32" height="32"></canvas>
+                        <div class="detail-item">
+                          <i data-feather="wind"></i>
+                          <span id="wind-speed">12 m/s</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="daily-weather">
+                        <h2 class="day">10 PM</h2>
+                        <h3 class="degrees">25 °C</h3>
+                        <canvas height="32" width="32" id="rain"></canvas>
+                        <div class="detail-item">
+                          <i data-feather="wind"></i>
+                          <span id="wind-speed">12 m/s</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="daily-weather">
+                        <h2 class="day">11 PM</h2>
+                        <h3 class="degrees">27 °C</h3>
+                        <canvas height="32" width="32" id="snow"></canvas>
+                        <div class="detail-item">
+                          <i data-feather="wind"></i>
+                          <span id="wind-speed">12 m/s</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="daily-weather">
+                        <h2 class="day">12 PM</h2>
+                        <h3 class="degrees">28 °C</h3>
+                        <canvas height="32" width="32" id="sleet"></canvas>
+                        <div class="detail-item">
+                          <i data-feather="wind"></i>
+                          <span id="wind-speed">12 m/s</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="daily-weather">
+                        <h2 class="day">1 AM</h2>
+                        <h3 class="degrees">28 °C</h3>
+                        <canvas height="32" width="32" id="wind"></canvas>
+                        <div class="detail-item">
+                          <i data-feather="wind"></i>
+                          <span id="wind-speed">12 m/s</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="daily-weather">
+                        <h2 class="day">2 AM</h2>
+                        <h3 class="degrees">26 °C</h3>
+                        <canvas height="32" width="32" id="cloudy"></canvas>
+                        <div class="detail-item">
+                          <i data-feather="wind"></i>
+                          <span id="wind-speed">12 m/s</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+            </section>
+            <section class="seven-day-forecast">
+                <h3>7-Day Forecast</h3>
+                <div class="forecast-container" id="forecast-container"></div>
+                <div class="row">
+                    <div class="col-sm-2">
+                      <div class="daily-weather">
+                        <h2 class="day">Mon</h2>
+                        <h3 class="degrees">25 </h3>
+                        <canvas id="clear-day" width="32" height="32"></canvas>
+                        <div class="detail-item">
+                          <i data-feather="wind"></i>
+                          <span id="wind-speed">12 m/s</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="daily-weather">
+                        <h2 class="day">Tue</h2>
+                        <h3 class="degrees">25 </h3>
+                        <canvas height="32" width="32" id="rain"></canvas>
+                        <div class="detail-item">
+                          <i data-feather="wind"></i>
+                          <span id="wind-speed">12 m/s</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="daily-weather">
+                        <h2 class="day">Wed</h2>
+                        <h3 class="degrees">27 </h3>
+                        <canvas height="32" width="32" id="snow"></canvas>
+                        <div class="detail-item">
+                          <i data-feather="wind"></i>
+                          <span id="wind-speed">12 m/s</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="daily-weather">
+                        <h2 class="day">Thu</h2>
+                        <h3 class="degrees">28 </h3>
+                        <canvas height="32" width="32" id="sleet"></canvas>
+                        <div class="detail-item">
+                          <i data-feather="wind"></i>
+                          <span id="wind-speed">12 m/s</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="daily-weather">
+                        <h2 class="day">Fri</h2>
+                        <h3 class="degrees">28 </h3>
+                        <canvas height="32" width="32" id="wind"></canvas>
+                        <div class="detail-item">
+                          <i data-feather="wind"></i>
+                          <span id="wind-speed">12 m/s</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="daily-weather">
+                        <h2 class="day">Sat</h2>
+                        <h3 class="degrees">26 </h3>
+                        <canvas height="32" width="32" id="cloudy"></canvas>
+                        <div class="detail-item">
+                          <i data-feather="wind"></i>
+                          <span id="wind-speed">12 m/s</span>
+                      </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
